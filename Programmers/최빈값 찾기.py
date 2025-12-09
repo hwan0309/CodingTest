@@ -11,3 +11,4 @@ def solution(array):
         return -1
     else:
         return most_common[0][0]
+
