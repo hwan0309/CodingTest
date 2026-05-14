@@ -3,7 +3,6 @@ class Node:
         self.data = data
         self.next = None
 
-
 class LinkedList:
     def __init__(self, value):
         self.head = Node(value)
@@ -14,10 +13,20 @@ class LinkedList:
             cur = cur.next
         cur.next = Node(value)
 
+def get_single_linked_list_sum(linked_list):
+    sum = 0
+    cur = linked_list.head
+    while cur is not None:
+        sum = sum * 10 + cur.data
+        cur = cur.next
+    return sum
 
 def get_linked_list_sum(linked_list_1, linked_list_2):
+    sum_1 = get_single_linked_list_sum(linked_list_1)
+    sum_2 = get_single_linked_list_sum(linked_list_2)
+
     # 구현해보세요!
-    return 1032
+    return sum_1 + sum_2
 
 
 linked_list_1 = LinkedList(6)
