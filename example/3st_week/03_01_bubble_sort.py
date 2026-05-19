@@ -7,11 +7,12 @@ input = [4, 6, 2, 9, 1]
 def bubble_sort(array):
     # 이 부분을 채워보세요!
     n = len(array)
-    for i in range(n -1):
+   # print(n)
+    for i in range(n - 1):
         for j in range(n - i - 1):
-            print(i, j)
+            print(j)
             if array[j] > array[j + 1]:
-                array[j], array[j +1] = array[j + 1], array[j]
+                array[j], array[j + 1] = array[j+1], array[j]
     return array
 
 
