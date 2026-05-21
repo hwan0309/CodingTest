@@ -2,15 +2,17 @@ input = [4, 6, 2, 9, 1]
 
 
 def insertion_sort(array):
-    # 이 부분을 채워보세요!
     n = len(array)
     for i in range(1, n):
         for j in range(i):
-            if array[i - j] < array[i -j -1]:
-                array[i -j], array[i - j - 1] = array[i - j - 1], array[i -j]
+            if array[i - j ] < array[i - j - 1]:
+                array[i - j], array[i - j - 1] = array[i - j - 1], array[i - j]
             else:
                 break
-    return
+
+
+
+    return array
 
 
 insertion_sort(input)

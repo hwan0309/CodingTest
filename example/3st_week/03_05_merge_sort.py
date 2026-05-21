@@ -4,11 +4,11 @@ array = [5, 3, 2, 1, 6, 8, 7, 4]
 def merge_sort(array):
     if len(array) <= 1:
         return array
-    mid = (0 + len(array)) // 2
-    left_array = merge_sort(array[:mid])   # 왼쪽 부분을 정렬하고
-    right_array = merge_sort(array[mid:])  # 오른쪽 부분을 정렬한 다음에
-    return merge(left_array, right_array)
 
+    mid = (0 + len(array)) // 2
+    left_array = merge_sort(array[:mid])
+    right_array = merge_sort(array[mid:])
+    return merge(left_array, right_array)
 
 def merge(array1, array2):
     result = []

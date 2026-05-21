@@ -2,11 +2,6 @@ array_a = [1, 2, 3, 5]
 array_b = [4, 6, 7, 8]
 
 
-# i1
-# [1, 2, 3, 5]
-#
-# i2
-# [4, 6, 7, 8]
 
 
 def merge(array1, array2):
@@ -24,10 +19,10 @@ def merge(array1, array2):
             array2_index += 1
     while array1_index < len(array1):
         result.append(array1[array1_index])
-        array1_index +=1
+        array1_index += 1
     while array2_index < len(array2):
         result.append(array2[array2_index])
-        array2_index +=1
+        array2_index += 1
 
     return result
 

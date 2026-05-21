@@ -1,39 +1,19 @@
 input = [4, 6, 2, 9, 1]
 
-# i = 0
-# j = 5
-#  0 1 2 3 4
-# [4 6 2 9 1]
-#
-# i = 1
-# j = 4
-#    1 2 3 4
-# [1 4 6 2 9]
-#
-# i = 2
-# j = 3
-#      2 3 4
-# [1 4 6 2 9]
-#
-# i = 3
-# j = 2
-#        3 4
-# [1 4 6 2 9]
 
-# for i in range(5 -1):
-#     for j in range(5 -i):
+# for i in range(5-1):
+#     for j in range(5 - i ):
 #         print(i + j)
-
 def selection_sort(array):
-    # 이 부분을 채워보세요!
     n = len(array)
-    for i in range(n - 1):
+    for i in range(n -1):
         min_index = i
         for j in range(n - i):
             if array[i + j] < array[min_index]:
                 min_index = i + j
-        array[i] , array[min_index] = array[min_index], array[i]
-    return
+        array[i], array[min_index] = array[min_index] ,array[i]
+    return array
+
 
 
 selection_sort(input)
