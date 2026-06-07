@@ -38,7 +38,10 @@ class MaxHeap:
             self.items[cur_index], self.items[max_index] = self.items[max_index], self.items[cur_index]
             cur_index = max_index
 
-        return prev_max  # 8 을 반환해야 합니다.
+        return prev_max
+
+
+        # 8 을 반환해야 합니다.
 
 
 max_heap = MaxHeap()
