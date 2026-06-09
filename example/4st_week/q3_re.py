@@ -23,6 +23,7 @@ def fibo_dynamic_programming(n, fibo_memo):
 def get_all_ways_of_theater_seat(total_count, fixed_seat_array):
     all_ways = 1
     current_index = 0
+    ##
 
 
     for fixed_seat in fixed_seat_array:
