@@ -21,15 +21,14 @@ graph = {
 
 def bfs_queue(adj_graph, start_node):
     queue = deque([start_node])
-    visited =[]
-
+    visited = []
     while queue:
         current_node = queue.popleft()
         visited.append(current_node)
-
         for adjacent_node in adj_graph[current_node]:
             if adjacent_node not in visited:
                 queue.append(adjacent_node)
+
 
     return visited
 
