@@ -21,3 +21,4 @@ def solution(k, dungeons):
 
     dfs(k, 0)
     return answer
+
