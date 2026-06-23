@@ -12,16 +12,21 @@ graph = {
     10: [9]
 }
 
+# 1. 시작노드를 스택에 넣는다
+# 2. 스택의 노드를 뺴서 visited에 추가한다
+# 3. 현재 방문한 노드와 인접한 노드 중 방문하지 않는 노드를 스택에 추가한다
 
 def dfs_stack(adjacent_graph, start_node):
     stack = [start_node]
     visited =[]
+
     while stack:
         current_node = stack.pop()
         visited.append(current_node)
 
         for adjacent_node in adjacent_graph[current_node]:
             # print(adjacent_node)
+
             if adjacent_node not in visited:
                 stack.append(adjacent_node)
 
