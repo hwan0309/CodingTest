@@ -4,6 +4,7 @@ input = "소주만병만주소"
 def is_palindrome(string):
     if string[0] != string[-1]:
         return False
+
     if len(string) <= 1:
         return True
 
