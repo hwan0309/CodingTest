@@ -19,13 +19,18 @@ graph = {
 # 현재 방문한 노드와 인접한 노드 중 방문하지 않은 노드를 큐에 추가
 # 2~3 과정을 큐가 빌떄까지 반복
 
+
 def bfs_queue(adj_graph, start_node):
     queue = deque([start_node])
     visited = []
+
+
     while queue:
         current_node = queue.popleft()
         visited.append(current_node)
+
         for adjacent_node in adj_graph[current_node]:
+            # print(adjacent_node)
             if adjacent_node not in visited:
                 queue.append(adjacent_node)
 
