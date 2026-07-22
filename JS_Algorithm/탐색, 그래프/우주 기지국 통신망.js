@@ -21,6 +21,7 @@ function solution(n, stations) {
   }
   return answer;
 }
+
 console.log(
   solution(3, [
     [1, 0, 1],
