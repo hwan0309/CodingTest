@@ -21,7 +21,7 @@ function solution(n, roads, start) {
     const node = queue.shift();
 
     for (const next of graph[node]) {
-      if (!visited[next]) {
+      if (!visited[nextD]) {
         visited[next] = true;
         d[next] = d[node] + 1;
         queue.push(next);
