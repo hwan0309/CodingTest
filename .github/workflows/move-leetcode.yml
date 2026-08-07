@@ -21,9 +21,15 @@ jobs:
           mkdir -p "$TARGET_DIR"
 
           for item in [0-9]*; do
-            if [ -e "$item" ]; then
-              # 일반 mv 대신 git mv를 사용하여 파일이 '이동'했음을 Git에 명확히 알림
-              git mv "$item" "$TARGET_DIR/"
+            if [ -d "$item" ]; then
+              # 1. LeetCode 폴더 안에 동일한 문제 폴더 생성 (이미 있으면 패스)
+              mkdir -p "$TARGET_DIR/$item"
+              
+              # 2. 내용물을 통째로 복사 (기존 코드가 있다면 덮어쓰기)
+              cp -r "$item"/* "$TARGET_DIR/$item/"
+              
+              # 3. 루트에 남은 원본 폴더 강제 삭제
+              rm -rf "$item"
             fi
           done
 
@@ -32,7 +38,6 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # . 대신 -A를 사용하여 이동(삭제 후 생성)된 모든 변경사항을 확실히 스테이징
           git add -A
           
           if ! git diff-index --quiet HEAD; then
