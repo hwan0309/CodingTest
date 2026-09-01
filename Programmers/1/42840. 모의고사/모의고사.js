@@ -1,26 +1,28 @@
 function solution(answers) {
-    const p1 = [1,2,3,4,5];
-    const p2 = [2,1,2,3,2,4,2,5];
-    const p3 = [3,3,1,1,2,2,4,4,5,5];
     
-    const score = [0, 0, 0];
-    
+    var answer = [];
+    let score1 = 0;
+    let score2 = 0;
+    let score3 = 0
+
+    const q1 = [1, 2, 3, 4, 5]
+    const q2 = [2, 1, 2, 3, 2, 4, 2, 5]
+    const q3 = [3, 3, 1, 1, 2, 2, 4,4, 5 ,5]
+
     for(let i=0; i<answers.length; i++){
-        if(answers[i] === p1[i % p1.length]) score[0]++;
-        if(answers[i] === p2[i % p2.length]) score[1]++;
-        if(answers[i] === p3[i % p3.length]) score[2]++;
+       if(q1[i % q1.length] === answers[i]){
+           score1++
+       } if(q2[i % q2.length] === answers[i]){
+           score2++
+       } if(q3[i % q3.length] === answers[i]){
+           score3++
+       }
+
     }
-    var answer =[];
+    const maxScore = Math.max(score1, score2, score3)
     
-    //가장 많이 맞춘 점수 찾기
-    const maxScore = Math.max(...score);
-    //console.log(maxScore)
-    
-    for(let j=0; j<score.length; j++){
-        if(score[j] === maxScore){
-            answer.push(j + 1)
-        }
-    }
-    
+    if(score1 === maxScore) answer.push(1)
+    if(score2 === maxScore) answer.push(2)
+    if(score3 === maxScore) answer.push(3)
     return answer;
 }
