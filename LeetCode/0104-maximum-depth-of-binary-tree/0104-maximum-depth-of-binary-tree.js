@@ -11,11 +11,8 @@
  * @return {number}
  */
 var maxDepth = function(root) {
-
-    //종료조건
     if(root === null) return 0
 
-    return 1 + Math.max(maxDepth(root.left),(maxDepth(root.right)))
-
-
+    return 1 +  Math.max(maxDepth(root.left), (maxDepth(root.right)))
+    
 };
