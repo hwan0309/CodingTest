@@ -7,33 +7,32 @@
  */
 var floodFill = function(image, sr, sc, color) {
 
-    const originColor = image[sr][sc];
-
+    const originColor = image[sr][sc]
 
     if(originColor === color) return image
-    
 
-    //픽셀이 올바른 색상이면 해당 픽셀을 칠하고, 아니면 재귀 
+    const row = image.length;
+    const cols = image[0].length;
 
     const dx = [1, -1, 0, 0]
-    const dy = [0, 0 , 1, -1]
+    const dy = [0, 0, 1, -1]
 
-
-    function dfs(r, c){
-        //범위를 벗어나거나 원래 색상과 다르면 종료
-        if(r < 0 || r >= image.length || c < 0 || c >= image[0].length || image[r][c] !== originColor){
+    function dfs(a, b){
+        if(a < 0 || a >= row || b < 0 || b >= cols || image[a][b] !== originColor){
             return
         }
 
-        image[r][c] = color;
+        image[a][b] = color
 
-        for(let i=0; i<4; i++){
-            dfs(r + dx[i], c + dy[i])
-        
+        for (let i=0; i< 4; i++){
+            const nx = a + dx[i]
+            const ny = b + dy[i]
+
+            dfs(nx, ny)
         }
-
     }
+
     dfs(sr, sc)
     return image
-
+    
 };
