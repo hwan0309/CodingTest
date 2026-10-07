@@ -1,19 +1,10 @@
 function solution(participant, completion) {
+   participant.sort();
+    completion.sort();
     
-    const map = new Map()
-    
-    for(let i =0; i<participant.length; i++){
-        let a = participant[i];
-        map.set(a,(map.get(a) || 0) + 1)
-}
-    
-    for(let j=0; j<completion.length; j++){
-        let b = completion[j]
-        map.set(b, map.get(b) - 1)
+    for(let i=0; i<participant.length; i++){
+        if(participant[i] !== completion[i]){
+            return participant[i]
+        }
     }
-    
-    for(let [k, v] of map){
-        if(v > 0) return k
-    }
-    
 }
