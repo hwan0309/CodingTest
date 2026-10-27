@@ -1,24 +1,27 @@
 function solution(participant, completion) {
     
-    //새로운 맵을 만든 후, participant 값을 key와 value로 담음
-    //completion에서 맵을 가져와서 값이 있으면 value -1
-    //for문으로 map을 순회하면서 value 값이 0 이상이면 key 리턴
+    //참여자 명단에 없으면 리턴
+    //참여한 명단을 map에 추가해서 value + 1
+    //완료한 명단을 map에 추가해서 value - 1
+    //맵에서 value가 0보다 크면 key 리턴
     
-    const map = new Map();
+    let map = new Map();
     
     for(let i=0; i<participant.length; i++){
-        let name = participant[i];
+        let name = participant[i]
         map.set(name, (map.get(name) || 0) + 1)
     }
     
     for(let j=0; j<completion.length; j++){
         let name = completion[j];
-        map.set(name, map.get(name)  - 1);
+        map.set(name, map.get(name) -1)
+      
     }
     
-    for(let [key, value] of map){
+    for(let[key, value] of map){
         if(value > 0){
             return key
         }
     }
+
 }
