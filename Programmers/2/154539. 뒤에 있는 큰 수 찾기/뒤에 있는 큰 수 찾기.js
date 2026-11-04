@@ -1,13 +1,15 @@
 function solution(numbers) {
-    const answer = new Array(numbers.length).fill(-1)
+    
+    const answer= new Array(numbers.length).fill(-1)
     const stack = []
     
     for(let i=0; i<numbers.length; i++){
-        while(stack.length > 0 && numbers[stack[stack.length -1]] < numbers[i]){
-            const idx = stack.pop()
-            answer[idx] = numbers[i];
-        }
-        stack.push(i)
+        //현재 숫자가 스택의 top 보다 크면, 뒷 큰수를 찾은 것
+       while(stack.length > 0 && numbers[i] > numbers[stack[stack.length - 1]]){
+           const index = stack.pop()
+           answer[index] = numbers[i]
+       }
+            stack.push(i)
     }
-    return answer;
+    return answer
 }
