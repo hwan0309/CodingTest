@@ -4,31 +4,26 @@
  */
 var permute = function(nums) {
 
-    const result = [];
+    const answer = []
 
-    function backtrack(current){
-        //종료조건 길이와 같으면 종료
-        if(current.length === nums.length){
-            result.push([...current])
+    function backtrack(currentPath, visited){
+        if(currentPath.length === nums.length){
+            answer.push([...currentPath])
             return
         }
 
         for(let i=0; i<nums.length; i++){
-            //이미 선택한 숫자는 패스
-            if(current.includes(nums[i])) continue;
-            
-            //선택
-            current.push(nums[i]);
+            if(visited[i]) continue;
 
-            //다음 탐색
-            backtrack(current);
+            visited[i] = true
+            currentPath.push(nums[i]);
 
-            //백트래킹
-            current.pop();
+            backtrack(currentPath, visited)
+
+            currentPath.pop();
+            visited[i] = false
         }
     }
-
-    backtrack([])
-    return result;
-    
+    backtrack([], new Array(nums.length).fill(false))
+    return answer
 };
