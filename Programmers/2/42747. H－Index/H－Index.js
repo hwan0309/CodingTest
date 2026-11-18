@@ -1,16 +1,17 @@
 function solution(citations) {
-    //먼저 정렬 
-    //citations[i] 와 i +1 값과 비교해서 더 크면 return
+    //정렬
+    //인덱스가 현재 값보다 커지는 순간 리턴
     
-    var answer = 0;
+    //내림차순
+    citations.sort((a,b) => b - a)
     
-    citations.sort((a, b) => b - a);
-    
-    for(let i=0; i<citations.length; i++){
-        if(citations[i] >= i +1){
-            answer++
+    let h = 0
+    for(let i=0; i< citations.length; i++){
+        if(citations[i] >= i + 1){
+            h = i + 1
+        }else{
+            break;
         }
     }
-    
-    return answer;
+    return h
 }
